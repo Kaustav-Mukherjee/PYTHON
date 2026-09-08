@@ -15,3 +15,10 @@ role = messy[6:20]
 age = messy[22:]
 
 print('name: '+ name +' '+'|'+' role: '+ role + ' ' + '|' + ' age: '+ age)
+
+
+# Generate a random integer between 1 and 100, and check if the result is an even number.
+
+import random
+x = random.randint(1,100)
+print(isinstance(x,int))
