@@ -44,3 +44,39 @@ print(len(password) >= 8 and " " not in password)
 print(email is not "" and "@" in email and ".com" in email)
 print(isinstance(username, str) and username is not None and len(username)>5)
 print((is_admin or is_moderator) and (not is_banned or has_verified_email))
+
+
+
+#Validate the Quality and correctness of Email Values: 
+# 1. Must not be Empty 
+# 2. Must contain '.' and "@" 
+# 3. Must contain exactly one "@" symbol. 
+# 4. Must end with ".com", ".org" or ".net" 
+# 5. Must not be longer than 254 characters 
+# 6. Must start and end with a letter or digit.
+
+email = "kausty.@gmail.com*"
+#Clean the strings for whitespaces
+email = email.strip()
+#Apply the checks
+if email == "":
+    print('Email cannot be empty.') # 1.
+
+if not('.' in email and '@' in email):
+    print('Email must contain . and @') #2.
+
+if email.count('@') !=1:
+    print('Email must contain exactly one "@" symbol') #3.
+
+if not email.endswith(('.com', '.org', '.net')):
+    print('Email must end with ".com", ".org" or ".net"') #4.
+
+if len(email) > 254:
+    print('Email must not be longer than 254 characters ') #5.
+
+if not(email[0].isalnum() and email[-1].isalnum()):
+    print('Email must start and end with a letter or digit') #6.
+
+
+    ## WE ARE NOT USING ELIF HERE, BECAUSE IN THE LAST CONDITION - THE EMAIL MUST END WITH A LETTER/DIGIT, IF WE ARE USING ELIF THE CONDITION STOPS AT THE CONDITION NO.4 AND DOESN'T CHECK THE REST OF THE CONDITIONS. THUS WE'RE USING INDEPENDENT IF.
+
