@@ -78,5 +78,104 @@ if not(email[0].isalnum() and email[-1].isalnum()):
     print('Email must start and end with a letter or digit') #6.
 
 
-    ## WE ARE NOT USING ELIF HERE, BECAUSE IN THE LAST CONDITION - THE EMAIL MUST END WITH A LETTER/DIGIT, IF WE ARE USING ELIF THE CONDITION STOPS AT THE CONDITION NO.4 AND DOESN'T CHECK THE REST OF THE CONDITIONS. THUS WE'RE USING INDEPENDENT IF.
+    # WE ARE NOT USING ELIF HERE, BECAUSE IN THE LAST CONDITION - THE EMAIL MUST END WITH A LETTER/DIGIT, IF WE ARE USING ELIF THE CONDITION STOPS AT THE CONDITION NO.4 AND DOESN'T CHECK THE REST OF THE CONDITIONS. THUS WE'RE USING INDEPENDENT IF.
 
+
+
+# Print the 7-times table from 1 to 10 using for loop:
+
+for number in range(1,11):
+    print(f'7 X {number} = {7*number}')
+
+    #OUTPUT:
+    # 7 X 1 = 7
+    # 7 X 2 = 14
+    # 7 X 3 = 21
+    # 7 X 4 = 28
+    # 7 X 5 = 35
+    # 7 X 6 = 42
+    # 7 X 7 = 49
+    # 7 X 8 = 56
+    # 7 X 9 = 63
+    # 7 X 10 = 70
+
+
+# Print a left aligned pyramind of stars with 6 rows using a for loop:
+
+for star in range(1,7):
+    print('*'*star)
+
+    #OUTPUT:
+    # *
+    # **
+    # ***
+    # ****
+    # *****
+    # ******
+
+# Loop through a list of Days and print only the working days, skipping the weekends.
+
+days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+weekends = ['Saturday', 'Sunday']
+for day in days:
+    if day in weekends:
+        continue
+    print(f'Workday: {day}')
+
+# Scan emails to block unsafe data from entering your system.
+
+emails = [
+    'data@gmail.com',
+    'kaustavmukhe456@gmail.com',
+    'kalmukhe12@yahoo.in',
+    'DROP TABLE USERS;',
+    'shankhalikamallick@gmail.com'
+]
+for email in emails:
+    if ';' in email:
+        print('SQL INJECTION ALERT !!!!')
+        break
+    print(f'Processing emails: {email}')
+
+
+emails = [
+    'data@gmail.com',
+    'kaustavmukhe456@gmail.com',
+    'kalmukhe12@yahoo.in',
+    'DROP TABLE USERS;',
+    'shankhalikamallick@gmail.com'
+]
+for email in emails:
+    if '@' not in email:
+        print('SQL INJECTION ALERT !!!!')
+        break
+    print(f'Processing emails: {email}')
+
+# Check for Missing Names in a list:
+
+names = ['Kausty', 'Shanky', 'Kundky', None, 'Shovky']
+for name in names:
+    if name is None:
+        print('Found a missing name.')
+        break
+else:
+    print('All names are available!')
+
+
+
+# Check wether any filename appears more than once. Print 'Duplicate Found' if a duplicate exists, else print 'All files are unique'
+
+file_list = [
+    'report.csv',
+    'data.xlsx',
+    'summary.docx',
+    'report.csv',
+    'data.csv'
+]
+
+for file in file_list:
+    if file_list.count(file) > 1:
+        print('Duplicate Found')
+        break
+else:
+    print('All files are unique')
