@@ -151,5 +151,71 @@ for y in years:
 
 
 # ==========================================================================================
-# ~ WHILE Loop: Go through a group of items one by one to do something for each item.
+# ~ WHILE Loop: Repeats a block of code- over and over as long as condtition is True.
 # ==========================================================================================
+
+# ==========================================================================================
+# Brief difference between for loops vs. while loops:
+#     In for loops, as long we have values from the iterator(sequence), the program keeps looping. There are 2 issues in it:
+#         1. We are always predefining the sequence. We know how many times the program will iterate.
+#         2. The condition is always predefined from python, and we cannot change it.
+#     But for While loops, we can define the condition for the iteration, and as long as it is true we're gonna keep looping and iterating.
+# ==========================================================================================
+
+# ==========================================================================================
+# 2 categories of while loops:
+    # . WHILE CONDITION: We define the cond. and loop will keep gping until the condition becomes False.
+    # . WHILE TRUE: The loop is going to run forever, thus we add a break statement in order to force the loop to stop.
+# ==========================================================================================
+
+
+# ~ WHILE Condition:
+
+i = 1                    #INITIALIZATION
+while i <= 5:            #CONDITION
+    print(i)
+    i += 1               #UPDATE
+
+
+# Write a program that keeps asking "Do you agree" until the user types "Yes"
+answer = "" 
+while answer != 'Yes':
+    answer = input("Do you agree? (Yes/No): ")
+print('Thank You')
+
+# ~ WHILE TRUE:
+
+while True:
+    answer = input("Do you agree? (Yes/No): ")
+    if answer == 'Yes':
+        break
+print('Thank You')
+
+
+# ==========================================================================================
+#               WHILE Condition                   |               WHILE True               
+# ------------------------------------------------|------------------------------------------    
+#                                                 |
+# 1. Exists Normally , when condition = FALSE     | 1. Must have extra IF and BREAK statements
+# 2. Safer and more Readable                      | 2. Risk of infinite loop, but more Flexible
+# 3. Used to make Counter, Limited Retries or     | 3. Used in Open Ended scenarios, like a trigger,
+# Validating inputs from customers                | if we are trying to connect to a database, stream, api, etc.
+# ==========================================================================================
+
+# ==========================================================================================
+#               FOR Loop                          |               WHILE Loop               
+# ------------------------------------------------|------------------------------------------    
+#                                                 |
+# 1. Loops over a fixed sequence, where python    | 1. Loops while the condition given is TRUE
+# creates an object code iterator.                | 
+# 2. For loops require predefined conditions.     | 2. We can add our own conditions for the iterations.
+# 3. For loops are used when we know for how many | 3. While Loops are used when we don't know the no. of 
+#  times the loop will run. Also for Processing   | iterations we need, we're waiting for a trigger/condition.
+#  Data.                                          |
+# 4. Advantages: Safe, Simple, Clear.             | 4. Advantages: Advanced, Flexible, Dynamic.
+# 5. Limited Flexibility.                         | 5. Complex, High Rish of builing infinite loops.
+# ==========================================================================================
+
+
+
+
