@@ -1,0 +1,26 @@
+# ==========================================================================================
+# Data Structures: It is a way of organizing and stroing data so it can be used efficiently.
+
+# There are 4 built in Data Structures in Python:
+# 1. list[] : Collection of items.
+# 2. tuple() : Collection of items but locked. Tuples cannot be modified.
+# 3. set{} : Collection of tiems, but all are unique values.
+# 4. dict{} : Collection of key-value pairs.
+# The simple data types, also known as "Primitive Data Types" like int, string, boolean can hold only one value.
+# Thus to hold more than one value and also to hold more advanced data, we need this type of Data Structures.
+# ==========================================================================================
+
+# ==========================================================================================
+#               Function                          |               Method               
+# ------------------------------------------------|------------------------------------------    
+#                                                 |
+#     costs = [10,20,15]                          |     costs = [10,20,15]
+#         len(costs)                              |      costs.remove(10)
+#                                                 |
+# In Function we give an input to do something    | In Methods we give an input to do something,
+# and have a result at the output.                | but it changes the original input given, and
+#                                                 | has no output.
+# ==========================================================================================
+
+
+
