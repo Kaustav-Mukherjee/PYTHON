@@ -42,7 +42,7 @@ mixed_matrix = [['a','b','c'],
                 [True]]
 print(mixed_matrix)
 print(type(mixed_matrix))
-
+# ==========================================================================================
 
 
 
@@ -87,6 +87,7 @@ print(matrix[:2]) #Prints the 1st 2 rows(lists) from the matrix.
 print(matrix[1:]) #Prints the last 2 rows(lists) from the matrix.
 
 print(matrix[2][:2]) #Prints the 1st 2 values from the last row(list) in the matrix.
+# ==========================================================================================
 
 
 
@@ -135,6 +136,7 @@ print(name)
 print(role)
 
 name, *_, country = person ## This will group the rest of the variables and will just skip it.
+# ==========================================================================================
 
 
 
@@ -175,6 +177,7 @@ print(9 not in numbers) # CHECKS AND PRINTS WETHER A VALUE IS NOT PRESENT IN A L
 print(list1 == list2) # COMPARES WETHER 2 LISTS HAVE SAME VALUES.
 print(list1 < list2) # COMPARES THE FIRST VALUE OF THE 2 LISTS, IF THEY ARE EQUAL, THEN THEY MOVE TO THE NEXT ELEMENT
 print(list1 is list2) # CHECKS WETHER THE MEMORY ADRESS OF THE LISTS. 
+# ==========================================================================================
 
 
 
@@ -262,6 +265,7 @@ print(matrix)
 
 matrix[0][0] = '-' # Updates the value at the speified position of the specified row in a matrix.
 print(matrix) 
+# ==========================================================================================
 
 
 
@@ -308,6 +312,7 @@ print(letters)
 new_list = list(reversed(letters)) # Flips the list around without changing the original list
 print(letters)
 print(new_list)
+# ==========================================================================================
 
 
 
@@ -321,6 +326,164 @@ print(new_list)
 # ~ How to COPY Lists:
 
 letters = ['a','b','c']
+matrix = [
+    ['a','b'],
+    ['c','d']
+]
+
+# Now, if we try to copy, by assigning 'letters' to another varibale like this: xyz = letters it won't work, as the xyz variable doesn't make a copy of the variable, only makes a reference of the original list, but it only points to the same variable. Any modification done in xyz will directly modify the original variable. SO :
+
+# Creating a Shallow Copy : Creating a copy of the oiginal list, independent of the original list, i.e, the modifications in the copied list won't affect the original list.
+
+letters_copy = letters.copy()
+letters_copy.append('z')
+print('Original:', letters)
+print('Copied:  ', letters_copy)
+
+matrix_copy = matrix.copy()
+matrix.pop()
+matrix_copy[0].append('z')
+print('Original:', matrix)
+print('Copied:  ', matrix_copy)
+# Now, in this matrix, if we try to modify the values inside the separate lists, we'll be affecting both the original and the copied lists, because the function .copy() creates a shallow copy, which is only coopying the top level lists but not the values , inside it. Thus, we'll be using:
+# DEEP COPY
+
+
+# Creating a Deep Copy : Python has no built-in deep copy functions, so we have to import it.
+
+import copy 
+matrix = [
+    ['a','b'],
+    ['c','d']
+]
+matrix_copy = copy.deepcopy(matrix) #new_variable = library_name.function_name(variable_name)
+matrix.pop()
+matrix_copy[0].append('z')
+print('Original:', matrix)
+print('Copied:  ', matrix_copy)
+
+# There is also a copy function inside this copy library.
+
+# list.copy() is only limited to lists, but copy.copy() is more generalized. THEREFORE IT IS ADVISED TO USE THE 'COPY' LIBRARY FOR DEEP AS WELL AS SHALLOW COPIES.
+
+
+# Checking if Two Variables Refer to the Same Object.:
+import copy
+
+
+original = [
+    ['a','b'],
+    ['c','d']
+]
+
+    # Assignment
+copy1 = original
+print("Same Object?", original is copy1)
+
+    # Shallow Copy
+copy2 = original.copy()
+print("Same Object?", original is copy2)
+print("Shared Lists?", original[0] is copy2[0])
+
+    # Deep copy
+copy3 = copy.deepcopy(original)
+print("Same Object?", original is copy3)
+print("Shared Lists?", original[0] is copy3[0])
+# ==========================================================================================
+
+
+
+
+
+
+
+
+
+
+# ~ How to COMBINE Lists:
+
+letters = ['a','b','c','d']
+numbers = [1,2,3,4]
+comb = letters + numbers # Combines both the lists into one list. Combination depends on thr order of the variables written.
+print(comb)
+
+comb1 = [letters,numbers] # Combines both the list separately into one big list.
+print(comb1)
+
+numbers.extend(letters) # Extends already existing list and adds the list into it. It doesn't create a new list
+print(numbers)
+
+
+comb3 = zip(letters,numbers) # It pairs the 2 lists up by taking 1st item from the 1st list and combining with the 1st item of the 2nd list, and so on. The outputs of this pairs will be inside parenthesis,(known as tuples). Therefor the output will be a list of tuples.
+print(comb3) 
+print(list(comb3))
+
+# IMPORTANT : 1. If the lists are not of the same length, the remaining items in the original list will not be included in the output_list. 
+
+letters = ['a','b','c']
+numbers = [1,2,3,4]
+comb4 = zip(letters,numbers) 
+print(list(comb4))
+
+# 2. Also the output of this will be shown as an Iterator like : <Zip object at 0X0000175E84E0> , which we'll convert into a list with the function list()
+
+## We can also pair list, with a string value.
+comb5 = list(zip(letters,numbers,'Hi'))
+print(comb5)
+# ==========================================================================================
+
+
+
+
+
+
+
+
+
+
+# ~ How to Iterate through Lists (Iterators & Iterables): 
+
+# All items/ data types we work in python is stored in Memory. This becomes a big issue if there is huge loads of data, which takes up a lot os space inside memory. But often we don't need this huge bulk of data all at once, we require subsets of it. Now for making this we use, Iterators.
+# Iterators : These will not store anything in memory, it produces values 1 by 1 as long as we are asking for it.
+# Why do we need iterators : 
+# 1. For making Loops- For for loops we need iterators to go through items to execute a block of code to do spmething. 
+# 2. To Save Memory. 
+# 3. For Speed and Flexibilty. WE CAN BUILD Pipelines on the go without storing anything inside memory.
+
+# 'Iterator' is thr e Process/Machine that is going to help us with the iteration, whereas 'Iterable' is the thing(anything that has a sequence of items) we can loop over, for example list, string values. But not Integers, Boolean values.
+
+letters = ['a','b','c']
+
+    # enumerate(): Takes any iterables and gives the Index(Position No.) and the Value. Output is an iterator thas have to convert to a list.
+
+print(list(enumerate(letters))) 
+
+print(list(enumerate(letters, start=1))) #We can also specify the index number to be start from showing at the output.
+
+        #USAGE: Build a forloop . Helps to find the position of a data in a list.
+
+for index, value in enumerate(letters):
+    print(index, value)
+
+    # reversed(): Returns an iterator that flips the data order
+
+print(list(reversed(letters))) 
+
+for l in reversed(letters):
+    print(l)
+
+    # zip(): Combines two or more sequences into pairs(tuples)
+
+letters = ['a','b','c']
+numbers = [1,2,3]
+print(list(zip(letters,numbers)))
+
+
+
+
+
+
+
 
 
 
