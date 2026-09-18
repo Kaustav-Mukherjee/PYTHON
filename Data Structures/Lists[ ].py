@@ -478,6 +478,60 @@ letters = ['a','b','c']
 numbers = [1,2,3]
 print(list(zip(letters,numbers)))
 
+for l,n in zip(letters, numbers):
+    print(l,n)
+
+    # map(): Transforms data. map(function, Iterable)
+
+letters = ['a','b','c']
+print(list(map(str.upper,letters)))
+
+numbers = ['1','2','3']
+print(list(map(int,numbers)))
+
+    # filter(): Similar to map function, it filters/cleans out data. filter(function, Iterable)
+
+letters = ['a','b', '', None, 'c', False,0]
+print(list(filter(None,letters))) #NONE : Removes Falsy values like : 0, '', False
+print(list(filter(bool,letters))) #bool : Removes Falsy values like : 0, '', False (Same as None)
+
+print(list(map(str.upper,(filter(bool,letters)))))
+
+items = ['sql', '12345', 'rtyu', 'python', '98765']
+
+print(list(filter(str.isalpha, items))) # isalpha : Keeps only letter(alphabetic) items
+
+print(list(filter(str.isnumeric, items))) # isnumeric : Keeps only letter(numeric) items
+# ==========================================================================================
+
+
+
+
+
+
+
+
+
+
+# ~ LAMBDA FUNCTIONS: Building custom and quick logic
+
+# lambda X : Expression , X is the input , In Expression we have to define what we want to do with the input
+
+multiple = lambda x:x*2     # 'multiple; is a random variable name which stores a lambda function.
+
+print(multiple(4))
+print(multiple('a'))
+
+add = lambda x,y: x + y
+
+print(add(47,22))
+
+check = lambda i: i in 'python'
+print(check('z'))
+
+prices = ['$12.50','$9.99','$100.00']
+converter = lambda p: float(p.replace('$',''))
+print(list(map(converter,prices)))
 
 
 
