@@ -209,3 +209,15 @@ while attempt < 3:
     attempt += 1
 else:
     print('3 strikes, You are Out!')
+
+
+
+#Keep only students with names starting with 'M'
+
+students = [
+    ['Maria', 85],
+    ['Kumar', 90],
+    ['Max', 60]
+]
+
+

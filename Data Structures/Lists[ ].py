@@ -532,12 +532,35 @@ print(check('z'))
 prices = ['$12.50','$9.99','$100.00']
 converter = lambda p: float(p.replace('$',''))
 print(list(map(converter,prices)))
+# ==========================================================================================
 
 
 
 
 
 
+
+
+
+
+# ~ List Comprehension:   
+
+domains = [
+    'www.google.com',
+    'openai.com',
+    'localhost',
+    'WWW.DATAWITHKAT.COM'
+]
+
+# WE HAVE TO NORMALIZE THE DOMAINS INTO STANDARD FORMAT.
+
+cleaned = [
+    d.lower().replace('www.','') # Data Transformation #This step isn't optional, if we have to do just data filtering but no transformations, we can just write here 'd'
+    for d in domains # For loop   
+    if '.' in d # Data Filtering This step can be Optional Based on what the work requires.
+]
+
+print(cleaned)
 
 
 
